@@ -107,7 +107,7 @@ body {
     font-size: 1.6rem;
     font-weight: var(--fw-500);
     line-height: 1.6;
-    height: 300vh;
+    /*height: 300vh;*/
 }
 
 :focus-visible {outline-offset: 4px;}
@@ -231,7 +231,7 @@ body {
     font-size: 28px;
     color: var(--hoockers-green);
 }
-.nav-close-btn ion-icon { --ionficon-stroke-width: 40px; }
+.nav-close-btn ion-icon { --ionicon-stroke-width: 40px; }
 
 .mobile-navbar .navbar-link {
     color: var(--black);
@@ -344,7 +344,7 @@ body {
 }
 
 .scrollbar-item {
-    min-width: 500%;
+    min-width: 100%;
     scroll-snap-align: start;
 }
 
@@ -352,14 +352,14 @@ body {
 .has-scrollbar::-webkit-scrollbar-thumb {background-color: transparent;}
 
 .has-scrollbar:is(:hover , :focus-within)::-webkit-scrollbar-track {
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 80%);
 }
 
 .has-scrollbar:is(:hover , :focus-within)::-webkit-scrollbar-thumb {
     background-color: hsl(0, 0%, 60%);
 }
 
-.collection { padding-block-start: 0;}
+.collection {padding-block-start: 0;}
 
 .collection-list {
     display: grid;
@@ -398,7 +398,7 @@ body {
     position: absolute;
 }
 
-.hover\:shine {overflow: hidden;}
+.hover\:shine { overflow: hidden;}
 
 .hover\:shine .has-bg-image {
     position: absolute;
@@ -410,7 +410,7 @@ body {
     transition: var(--transition-2);
 }
 
-.hover\:shine:is(:hover , :focus) .has-bg-image { transform: scale(1.5);}
+.hover\:shine:is(:hover , :focus) .has-bg-image { transform: scale(1.15);}
 
 .hover\:shine::before {
     top: 0;
@@ -541,8 +541,14 @@ body {
 }
 
 .shop-card .card-title:is(:hover , :focus) {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--hoockers-green);
+}
+
+.shop-card .rating-wrapper {
+    gap: 2px;
+    color: var(--black);
+    font-size: 15px;
 }
 
 .shop-card .rating-text {
@@ -574,7 +580,18 @@ body {
 
     .header-top .container { flex-wrap: wrap;}
 
-    .search.field::placeholder {color: var(--light-gray);}
+    .search-field {
+        width: 270;
+        font-size: var(--fs-7);
+        border: 2px solid var(--hoockers-green_20);
+        border-radius: var(--radius-3);
+        padding: 10px 20px;
+        padding-inline-end: 60px;
+        outline: none;
+        transition: var(--transition-1);
+    }
+
+    .search.field::placeholder {color: var(--black);}
 
     .search.field:focus {border-color: var(--black);}
 
@@ -590,7 +607,7 @@ body {
 
     .header .search-submit ion-icon { --ionicon-stroke-width: 40px;}
 
-    .header .logo {margin-inline-end: 60px;}
+    .header .logo { margin-inline-end: 60px;}
 
     .header-action {
         display: flex;
@@ -608,7 +625,7 @@ body {
         color: var(--white);
         font-size: var(--fs-9);
         min-width: 18px;
-        height: 18px;
+        height: 16px;
         line-height: 1.4;
         border-radius: 20px;
     }
@@ -621,7 +638,7 @@ body {
 
     .header-action-btn .btn-text {
         font-size: var(--fs-7);
-        font-weight: var(--fw-700);
+        font-weight: var(--fw-400);
         margin-block-start: 3px;
     }
 
@@ -641,11 +658,21 @@ body {
         gap: 45px;
     }
 
-    .navbar .navbar-list::after {
+    .navbar .navbar-link {
+        color: var(--black);
+        font-size: var(--fs-7);
+        font-weight: var(--fw-600);
+    }
+
+    .navbar .navbar-link::after {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 1px;
+        height: 4px;
+        background-color: var(--black);
+        transition: var(--transition-1);
+        transform: scaleX(0);
+        transform-origin: left;
     }
 
     .navbar .navbar-link:is(:hover , :focus)::after {
@@ -654,7 +681,7 @@ body {
 
     .header-top.active .navbar {
         position: fixed;
-        top: -8 0px;
+        top: -80px;
         bottom: auto;
         padding-block: 28px;
         box-shadow: var(--shadow-1);
